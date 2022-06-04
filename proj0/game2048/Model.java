@@ -146,6 +146,7 @@ public class Model extends Observable {
                 int nextValue = next.value();
                 if (curr.value() == nextValue) {
                     board.move(column, row, next);
+                    changed = true;
                     score += nextValue * 2;
                     for(int r = nextLine - 1; r >= 0; r--) {
                         Tile nnT = board.tile(column, r);
@@ -154,12 +155,9 @@ public class Model extends Observable {
                         } else {
                             board.move(column, r+1, nnT);
                         }
-
                     }
                 }
-
             }
-
         }
 
 
