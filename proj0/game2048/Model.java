@@ -116,17 +116,27 @@ public class Model extends Observable {
 
         // No merge
         int size = board.size();
+        int count = 0;
+        int temp = 0;
         for(int column = 0; column < size; column ++) {
             for(int row = 0; row < size; row ++) {
                 if (board.tile(column, row) == null) {
                     continue;
                 } else {
+                    temp += board.tile(column, row).value();
                     board.move(column, size - 1, board.tile(column, row));
+                    count ++;
                     changed = true;
-                    break;
+                    if (count > 1) {
+                        score += temp;
+                        break;
+                    }
                 }
             }
         }
+
+        // Basic merge
+
 
 
 
