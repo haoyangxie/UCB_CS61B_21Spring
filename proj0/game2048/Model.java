@@ -116,21 +116,32 @@ public class Model extends Observable {
 
         // No merge
         int size = board.size();
-        int count = 0;
-        int temp = 0;
+        int[] numOfTiles = new int[size];
+
         for(int column = 0; column < size; column ++) {
             for(int row = 0; row < size; row ++) {
-                if (board.tile(column, row) == null) {
-                    continue;
-                } else {
-                    temp += board.tile(column, row).value();
-                    board.move(column, size - 1, board.tile(column, row));
-                    count ++;
+                if (board.tile(column, row) != null) {
+                    numOfTiles[column] += 1;
+                }
+            }
+        }
+
+
+
+        for(int column = 0; column < size; column ++) {
+            for(int row = size - 1; row >= 0; row --) {
+                if(numOfTiles[column] == 0) {
+                    break;
+                } else if(numOfTiles[column] == 1 && board.tile(column, row) != null) {
+                    board.move(column, size-1, board.tile(column, row));
                     changed = true;
-                    if (count > 1) {
-                        score += temp;
-                        break;
-                    }
+                    break;
+                } else if(numOfTiles[column] == 2 && board.tile(column, row) != null) {
+                    score += board.tile(column, row).value();
+                    board.move(column, size-1, board.tile(column, row));
+                    changed = true;
+                } else if (numOfTiles[column] == 3 && board.tile(column, row) != null) {
+
                 }
             }
         }
