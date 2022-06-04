@@ -117,7 +117,7 @@ public class Model extends Observable {
 
         int size = board.size();
 
-        // move every non-empty tile in order, do not merge
+        // just move every non-empty tile in order, do not merge
         for(int column = 0; column < size; column ++) {
             for(int row = size - 1; row >= 0; row --) {
                 Tile currTile = board.tile(column, row);
@@ -159,14 +159,6 @@ public class Model extends Observable {
                 }
             }
         }
-
-
-
-
-
-
-
-
 
         board.setViewingPerspective(side.NORTH);
         checkGameOver();
