@@ -109,49 +109,68 @@ public class Model extends Observable {
     public boolean tilt(Side side) {
         boolean changed;
         changed = false;
+        board.setViewingPerspective(side);
 
         // TODO: Modify this.board (and perhaps this.score) to account
         // for the tilt to the Side SIDE. If the board changed, set the
         // changed local variable to true.
 
-        // No merge
         int size = board.size();
-        int[] numOfTiles = new int[size];
 
-        for(int column = 0; column < size; column ++) {
-            for(int row = 0; row < size; row ++) {
-                if (board.tile(column, row) != null) {
-                    numOfTiles[column] += 1;
-                }
-            }
-        }
-
-
-
+        // move every non-empty tile in order, do not merge
         for(int column = 0; column < size; column ++) {
             for(int row = size - 1; row >= 0; row --) {
-                if(numOfTiles[column] == 0) {
-                    break;
-                } else if(numOfTiles[column] == 1 && board.tile(column, row) != null) {
-                    board.move(column, size-1, board.tile(column, row));
+                Tile currTile = board.tile(column, row);
+                if (currTile != null) {
+                    int destination = size - 1;
+                    while(destination > row) {
+                        if(board.tile(column, destination) == null) {
+                            break;
+                        } else {
+                            destination --;
+                        }
+                    }     // find the first null tile
+                    board.move(column, destination, currTile);
                     changed = true;
-                    break;
-                } else if(numOfTiles[column] == 2 && board.tile(column, row) != null) {
-                    score += board.tile(column, row).value();
-                    board.move(column, size-1, board.tile(column, row));
-                    changed = true;
-                } else if (numOfTiles[column] == 3 && board.tile(column, row) != null) {
-
                 }
             }
+
+            // merge
+            for(int row = size - 1; row >= 1; row --) {
+                Tile curr = board.tile(column, row);
+                int nextLine = row - 1;
+                Tile next = board.tile(column, nextLine);
+                if (curr == null || next == null) {
+                    break;
+                }
+                int nextValue = next.value();
+                if (curr.value() == nextValue) {
+                    board.move(column, row, next);
+                    score += nextValue * 2;
+                    for(int r = nextLine - 1; r >= 0; r--) {
+                        Tile nnT = board.tile(column, r);
+                        if(nnT == null) {
+                            break;
+                        } else {
+                            board.move(column, r+1, nnT);
+                        }
+
+                    }
+                }
+
+            }
+
         }
 
-        // Basic merge
 
 
 
 
 
+
+
+
+        board.setViewingPerspective(side.NORTH);
         checkGameOver();
         if (changed) {
             setChanged();
