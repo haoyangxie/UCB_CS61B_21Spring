@@ -133,14 +133,4 @@ public class LinkedListDeque<T> implements Deque<T> {
         return true;
     }
 
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> test = new LinkedListDeque<>();
-        test.addFirst(1);
-        test.addFirst(2);
-        test.addLast(3);
-        test.addLast(4);
-        test.addFirst(5);
-        test.printDeque();
-        System.out.println(test.getRecursive(0, test.sentinel));
-    }
 }
