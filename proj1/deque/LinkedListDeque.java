@@ -1,7 +1,5 @@
 package deque;
 
-import net.sf.saxon.functions.ConstantFunction;
-
 public class LinkedListDeque<T> implements Deque<T> {
     private Node<T> sentinel;
     private  int size;
@@ -118,19 +116,19 @@ public class LinkedListDeque<T> implements Deque<T> {
 //
 //    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null) {
-            return false;
-        } else if (!(o instanceof LinkedListDeque)) {
-            return false;
-        }
-        for (int i = 0; i < size; i++) {
-            if (this.get(i) != ((LinkedListDeque<?>) o).get(i)) {
-                return false;
-            }
-        }
-        return true;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (o == null) {
+//            return false;
+//        } else if (!(o instanceof LinkedListDeque)) {
+//            return false;
+//        }
+//        for (int i = 0; i < size; i++) {
+//            if (this.get(i) != ((LinkedListDeque<?>) o).get(i)) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
 }
