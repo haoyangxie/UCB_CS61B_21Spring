@@ -1,7 +1,5 @@
 package deque;
 
-import java.io.ObjectInput;
-
 public class ArrayDeque<T> implements Deque<T>{
     private int capacity;
     private int size;
