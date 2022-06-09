@@ -2,7 +2,7 @@ package deque;
 
 import java.util.Iterator;
 
-public class ArrayDeque<T> implements Deque<T> {
+public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
 
     /* Deque implementation using array */
     private int capacity;
@@ -19,12 +19,12 @@ public class ArrayDeque<T> implements Deque<T> {
     }
 
     /* Check if the deque is full */
-    public boolean isFull() {
+    private boolean isFull() {
         return size == capacity;
     }
 
     /* Resize method: should be very tricky */
-    public void resize(double scalingFactor) {
+    private void resize(double scalingFactor) {
         int newCapacity = (int) scalingFactor * capacity;
         //int newCapacity = (int) 100+ capacity;
         T[] newItems = (T[]) new Object[newCapacity];
@@ -166,7 +166,7 @@ public class ArrayDeque<T> implements Deque<T> {
     private class ArrayDequeIterator implements Iterator<T> {
         private int position;
 
-        public ArrayDequeIterator() {
+        ArrayDequeIterator() {
             position = 0;
         }
 
