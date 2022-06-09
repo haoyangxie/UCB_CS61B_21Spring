@@ -91,7 +91,7 @@ public class ArrayDeque<T> implements Deque<T> {
     public T removeFirst() {
         if (isEmpty()) {
             return null;
-        } else if ((size-1) < 0.25*capacity && capacity > 8) {
+        } else if ((size - 1) < 0.25 * capacity && capacity > 8) {
             resize(0.5);
         }
 
@@ -112,7 +112,7 @@ public class ArrayDeque<T> implements Deque<T> {
     public T removeLast() {
         if (isEmpty()) {
             return null;
-        } else if ((size-1) < 0.25*capacity && capacity > 8) {
+        } else if ((size - 1) < 0.25 * capacity && capacity > 8) {
             resize(0.5);
         }
 
@@ -159,14 +159,14 @@ public class ArrayDeque<T> implements Deque<T> {
         return items[currentPos];
     }
 
-    private Iterator<T> iterator() {
-        return new arrayDequeIterator();
+    public Iterator<T> iterator() {
+        return new ArrayDequeIterator();
     }
 
-    private class arrayDequeIterator implements Iterator<T> {
+    private class ArrayDequeIterator implements Iterator<T> {
         private int position;
 
-        public arrayDequeIterator() {
+        public ArrayDequeIterator() {
             position = 0;
         }
 
@@ -175,7 +175,7 @@ public class ArrayDeque<T> implements Deque<T> {
         }
 
         public T next() {
-            T returnItem = items[(first+position) % capacity];
+            T returnItem = items[(first + position) % capacity];
             position += 1;
             return returnItem;
         }

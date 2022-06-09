@@ -2,7 +2,7 @@ package deque;
 
 import java.util.Iterator;
 
-public class LinkedListDeque<T> implements Deque<T>{
+public class LinkedListDeque<T> implements Deque<T> {
 
     private Node<T> sentinel;
     private int size;
@@ -11,9 +11,9 @@ public class LinkedListDeque<T> implements Deque<T>{
      * Make it circular
      */
     private class Node<T> {
-        public T data;
-        public Node<T> next;
-        public Node<T> prev;
+        private T data;
+        private Node<T> next;
+        private Node<T> prev;
 
         public Node(T x) {
             data = x;
@@ -121,14 +121,18 @@ public class LinkedListDeque<T> implements Deque<T>{
     }
 
     /* Same as get(), but use recursion */
-    public T getRecursive(int index, Node<T> node) {
-        if (index < 0 || index > size) {
+    public T getRecursive(int index) {
+        if (index < 0 || index > size - 1) {
             return null;
         }
-        if (index == 1) {
-            return node.data;
+        return getRecursiveHelper(index, sentinel.next);
+    }
+
+    private T getRecursiveHelper(int index, Node<T> currentNode) {
+        if (index == 0) {
+            return currentNode.data;
         }
-        return getRecursive(index - 1, node.next);
+        return getRecursiveHelper(index - 1, currentNode.next);
     }
 
     /** Build the iterator class for linked list deque
