@@ -1,5 +1,9 @@
 package deque;
 
+import org.junit.Test;
+
+import java.util.Iterator;
+
 public class LinkedListDeque<T> implements Deque<T> {
     private Node<T> sentinel;
     private  int size;
@@ -112,23 +116,54 @@ public class LinkedListDeque<T> implements Deque<T> {
         }
     }
 
-//    public Iterator<T> iterator() {
-//
-//    }
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkedListIterator();
+    }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (o == null) {
-//            return false;
-//        } else if (!(o instanceof LinkedListDeque)) {
-//            return false;
-//        }
-//        for (int i = 0; i < size; i++) {
-//            if (this.get(i) != ((LinkedListDeque<?>) o).get(i)) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
+    private class LinkedListIterator implements Iterator<T> {
+        private int pos;
+        private Node<T> currNode;
 
+        public LinkedListIterator() {
+            pos = 0;
+            currNode = sentinel;
+        }
+
+        public boolean hasNext() {
+            return pos < size;
+        }
+
+        public T next() {
+            pos += 1;
+            currNode = currNode.next;
+            return currNode.item;
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        } else if (!(o instanceof LinkedListDeque)) {
+            return false;
+        } else if (o == this) {
+            return true;
+        }
+
+        LinkedListDeque<T> other = (LinkedListDeque<T>) o;
+        if(other.size() != this.size()) {
+            return false;
+        }
+
+        Iterator<T> otherIterator = other.iterator();
+        Iterator<T> thisIterator = this.iterator();
+
+        while(otherIterator.hasNext() && thisIterator.hasNext()) {
+            if(thisIterator.next() != otherIterator.next()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

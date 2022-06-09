@@ -121,4 +121,22 @@ public class LinkedListDequeTest {
         }
 
     }
+
+    @Test
+    public void equalsIteratorTest() {
+
+        LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
+        LinkedListDeque<Integer> lld2 = new LinkedListDeque<Integer>();
+        LinkedListDeque<Integer> lld3 = new LinkedListDeque<Integer>();
+
+        for (int i = 1; i < 8; i++) {
+            lld1.addFirst(i);
+            lld2.addFirst(i);
+            lld3.addLast(i);
+        }
+
+        assertTrue("Should be the same deques", lld1.equals(lld2));
+        assertFalse("Should be false", lld1.equals(lld3));
+        assertFalse("Should be false", lld1.equals(null));
+    }
 }
