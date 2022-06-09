@@ -1,5 +1,4 @@
 package deque;
-import  java.util.Iterator;
 
 public interface Deque<T> {
     public void addFirst(T item);
@@ -12,7 +11,5 @@ public interface Deque<T> {
     public T removeFirst();
     public T removeLast();
     public T get(int index);
-
-    public Iterator<T> iterator();
     public boolean equals(Object o);
 }

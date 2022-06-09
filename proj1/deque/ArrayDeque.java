@@ -51,6 +51,7 @@ public class ArrayDeque<T> implements Deque<T>{
         size += 1;
     }
 
+    @Override
     public void addLast(T item) {
         if (isFull()) {
             resize(2);
@@ -134,7 +135,6 @@ public class ArrayDeque<T> implements Deque<T>{
         return items[pos];
     }
 
-    @Override
     public Iterator<T> iterator() {
         return new ArrayDequeIterator();
     }
