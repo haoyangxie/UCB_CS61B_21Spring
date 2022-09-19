@@ -7,7 +7,8 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
     private Node<T> sentinel;
     private int size;
 
-    /** Deque implementation using linked list
+    /**
+     * Deque implementation using linked list
      * Make it circular
      */
     private class Node<T> {
@@ -34,7 +35,8 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         return size;
     }
 
-    /** Add item at the first of deque
+    /**
+     * Add item at the first of deque
      * The add method should not use any looping or recursion
      * such operation should take constant amount of time, not depend on size
      */
@@ -104,7 +106,8 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         System.out.println();
     }
 
-    /** Get the item at the specified index
+    /**
+     * Get the item at the specified index
      * Must use iteration, not recursion
      */
     @Override
@@ -135,7 +138,8 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         return getRecursiveHelper(index - 1, currentNode.next);
     }
 
-    /** Build the iterator class for linked list deque
+    /**
+     * Build the iterator class for linked list deque
      * Class method: hasNext(), next()
      */
     private class LinkedListDequeIterator implements Iterator<T> {
@@ -191,3 +195,4 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
         return true;
     }
 }
+

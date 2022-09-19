@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LeetcodeEditor">
+    <option name="projectConfig">
+      <map>
+        <entry key="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/[1]Two Sum.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/doc/content/[1]Two Sum.md" />
+              <option name="frontendQuestionId" value="leetcode.com1" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/[1]Two Sum.java" />
+              <option name="titleSlug" value="two-sum" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/[28]Implement strStr().java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/doc/content/[28]Implement strStr().md" />
+              <option name="frontendQuestionId" value="leetcode.com28" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/[28]Implement strStr().java" />
+              <option name="titleSlug" value="implement-strstr" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/[332]Reconstruct Itinerary.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/doc/content/[332]Reconstruct Itinerary.md" />
+              <option name="frontendQuestionId" value="leetcode.com332" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/[332]Reconstruct Itinerary.java" />
+              <option name="titleSlug" value="reconstruct-itinerary" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/[33]Search in Rotated Sorted Array.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/doc/content/[33]Search in Rotated Sorted Array.md" />
+              <option name="frontendQuestionId" value="leetcode.com33" />
+              <option name="host" value="leetcode.com" />
+              <option name="path" value="/var/folders/dy/k0313dz972q9cgnsmg_fypqm0000gn/T/leetcode/editor/en/[33]Search in Rotated Sorted Array.java" />
+              <option name="titleSlug" value="search-in-rotated-sorted-array" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
